@@ -1,0 +1,192 @@
+/*
+  Personal Style HTML5 slides
+
+  Authors: Vagner Santana (code and design)
+*/
+
+body {
+  background: url('../img/patterns/black-Linen.png') repeat;
+}
+
+#capa{
+	background: url('../img/fundo.png');
+}
+
+#capa p{
+	font-size: 30px;
+}
+
+#choice{
+	background: url('../img/choice.png') no-repeat;
+}
+
+#dna{
+	background: url('../img/dna.png') no-repeat;
+}
+
+#pen{
+	background: url('../img/pen.png') no-repeat;
+}
+
+#dna_txt{
+	width: 540px;
+}
+
+#brute_force{
+	width:  318px;
+	height: 355px;
+	float: right;
+	margin-left: 30px;
+	background: url('../img/brute_force.jpg') no-repeat;
+	border: solid 1px #696969;
+	-moz-box-shadow: -5px -5px 5px #888;
+	-webkit-box-shadow: -5px -5px 5px #888;
+	box-shadow: -5px -5px 5px #888;
+}
+
+#cplx_bf{
+	width: 447px;
+	height: 123px;
+	margin-right: 10px;
+	background: url('../img/cplx_bf.png') no-repeat;
+	border: solid 1px #696969;
+	-moz-box-shadow: -5px -5px 5px #888;
+	-webkit-box-shadow: -5px -5px 5px #888;
+	box-shadow: -5px -5px 5px #888;	
+}
+
+#idea{
+	width: 100%;
+	height: 615px;
+	margin-top: 10px;
+	background: url('../img/idea.jpg') no-repeat;
+}
+
+#otima{
+	background: url('../img/optima.jpg') no-repeat;
+}
+
+#teorema1{
+	width: 598px;
+	height: 285px;
+	margin-left: 190px;
+	margin-top: -190px;
+	background: url('../img/teorema1.png') no-repeat;
+	border: solid 1px #696969;
+	-moz-box-shadow: -5px -5px 5px #888;
+	-webkit-box-shadow: -5px -5px 5px #888;
+	box-shadow: -5px -5px 5px #888;		
+}
+
+#subprob{
+	width: 619px;
+	height: 204px;
+	margin-top: 50px;
+	margin-left: 20px;
+	background: url('../img/subprob.png') no-repeat;
+	border: solid 1px #696969;
+	-moz-box-shadow: -5px -5px 5px #888;
+	-webkit-box-shadow: -5px -5px 5px #888;
+	box-shadow: -5px -5px 5px #888;		
+}
+
+#comprimento{
+	width: 250px;
+	height: 226px;
+	margin-top: 260px;
+	margin-left: -30px;
+	background: url('../img/comprimento.jpg') no-repeat;
+	border: solid 1px #696969;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-moz-box-shadow: -5px -5px 5px #888;
+	-webkit-box-shadow: -5px -5px 5px #888;
+	box-shadow: -5px -5px 5px #888;		
+}
+
+#up{
+	margin-top: -450px;
+	margin-left: 20px;
+}
+
+#recursive{
+	width: 584px;
+	height: 214px;
+	margin-top: 0px;
+	margin-left: 240px;
+	background: url('../img/recursive.png') no-repeat;
+	border: solid 1px #696969;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-moz-box-shadow: -5px -5px 5px #888;
+	-webkit-box-shadow: -5px -5px 5px #888;
+	box-shadow: -5px -5px 5px #888;		
+}
+
+#alg_pd{
+	width: 499px;
+	height: 379px;
+	margin-top: 20px;
+	margin-left: 30px;	
+	background: url('../img/alg_pd.png') no-repeat;
+	border: solid 1px #696969;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-moz-box-shadow: -5px -5px 5px #888;
+	-webkit-box-shadow: -5px -5px 5px #888;
+	box-shadow: -5px -5px 5px #888;		
+}
+
+#print_lcs{
+	width: 455px;
+	height: 314px;
+	margin-top: 20px;
+	margin-left: 40px;	
+	background: url('../img/print_lcs.png') no-repeat;
+	border: solid 1px #696969;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-moz-box-shadow: -5px -5px 5px #888;
+	-webkit-box-shadow: -5px -5px 5px #888;
+	box-shadow: -5px -5px 5px #888;
+}
+
+#app1{
+	width: 861px;
+	height: 411px;
+	margin-top: 50px;
+	background: url('../img/app1.png') no-repeat;
+}
+
+#app2{
+	width: 684px;
+	height: 541px;
+	margin-top: 20px;
+	background: url('../img/app2.png') no-repeat;
+}
+
+.main h1{
+	font-size: 50px;
+	color: #fff;
+	text-align: center;
+}
+
+h3{
+	font-size: 50px;
+}
+
+#problema span{
+	font-size: 25px;
+}
+
+.blue{
+	color: #1E90FF;
+}
+
+.min_size{
+	font-size: 20px;
+}

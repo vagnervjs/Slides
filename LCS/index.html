@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Subsequência Comum Mais Longa</title>
+    
+    <meta charset="utf-8">
+    <meta name="author" content="Vagner Santana" />
+    <meta name="description" content="Slides HTML5" />
+      
+    <script src="js/slides.js"></script>
+    <meta name="viewport" content="width=1100,height=750">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+  </head>
+
+  <body style="display: none">
+    <section class="slides layout-regular template-default">
+
+      <article id="capa" class="main">
+        <h1>
+          Subsequência Comum Mais Longa</br>
+          Longest Common Subsequence (LCS)
+        <h1>
+        <p>Programação Dinâmica</p>
+      </article>
+
+      <article id="problema">
+          <h3>O Problema</h3>
+          <p>Dadas duas sequências, X = x1x2 ... xm e Y = y1y2 ... yn, encontrar uma subsequência comum a X e Y que seja a mais longa possível.</p></br>
+          <div class="build">
+            <p>
+              Exemplo:</br>
+              <span>X = "<span class="blue">h</span>e<span class="blue">l</span><span class="blue">l</span><span class="blue">o</span>w<span class="blue">o</span>rl<span class="blue">d</span>"</br>
+                    Y = "<span class="blue">h</span>o<span class="blue">l</span><span class="blue">l</span>yw<span class="blue">o</span><span class="blue">o</span><span class="blue">d</span>"
+              </span></br></br>
+            </p>
+            <p>
+              O comprimento da subsequência comum mais long é <span class="blue">6</span>.</br>
+              E a subsequência é <span class="blue">hllood</span>.
+            </p>
+          </div>
+      </article>
+
+      <article id="dna">
+        <h4>Ok, para que serve ?</h4>
+        <div id="dna_txt" class="build">
+          <p>
+            Em <span class="blue">aplicações biológicas</span> para determinar o quão são "semelhantes" duas cadeias de <span class="blue">DNA</span> se busca uma <span class="blue">subsequência comum mais longa</span> entre as duas. Intuitivamente uma subsequência é uma sequência obtida de outra ao se remover alguns elementos. Difere da noção de subcadeia pois seus elementos não precisam se encontrar imediatamente um após o outro na cadeia original. Uma sequência é subsequência dela 
+            mesma.
+          </p>
+        </div>     
+      </article>
+
+      <article id="choice">
+        <h1>Como Resolver ?</h1>
+      </article>
+
+      <article >
+        <h3>Algoritmo de Força Bruta</h3></br>
+        <div class="build">
+          <div>
+            <div id="brute_force"></div>
+            <p>Gerar todas as subsequências de <span class="blue">X</span> e verificar se também é subsequência de <span class="blue">Y</span>, ir guardando a <span class="blue">subsequência mais longa</span> vista até ao momento.</p>
+          </div>
+          <p>Complexidade ?</br></br></p>
+          <div id="cplx_bf"></div>
+          <p>Exponencial =(</p>
+        </div>
+      </article>
+
+      <article>
+        <h3>Mas...</h3>
+        <div class="build">
+          <div id="idea">
+            <p class="blue">Podemos aplicar Programação Dinâmica ?</br></p>
+              <ul class="build">
+                <li>Se sim, teremos de conseguir definir o problema recursivamente em termos de subproblemas.</li>
+                <li>O n° de subproblemas tem de ser relativamente pequeno (polinomial em n e m) para que a Programação Dinâmica seja útil.</li>
+                <li>Depois de definir o problema em termos de subproblemas, podemos resolver o problema de baixo para cima (<span class="blue">botton-up</span>), começando pelos casos base e armazenando as soluções dos subproblemas.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article id="otima">
+        <h3>Subestrutura Ótima</h3>
+        <ul class="build">
+          <li>Vamos olhar para prefixos de X e Y .</li>
+          <li>Seja Xi o prefixo dos i primeiros elementos</br> de X.</li>
+          <li>Exemplo:<br><span class="min_size">X = helloworld<br> x4 = hell<br> x6 = hellow<br> x0 = {vazio}<br> x10 = helloworld</span></li>
+          <div id="teorema1"></div>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Resumindo...</h3>
+        <div class="build">
+          <p></br>Podemos definir LCS(Xm, Yn) em termos de subproblemas.</p>
+          <div id="subprob"></div>
+        </div>
+      </article>
+
+      <article>
+        <h3>Comprimento de LCS(X,Y)</h3>
+        <div class="build">
+          <div>
+            <p class="min_size"><br>Vamos tentar primeiro resolver um problema mais simples:<br>Obter |LCS (X, Y)| ---> o comprimento de LCS (X, Y)</p>
+            <div id="comprimento"></div>
+          </div>
+          <div id="up">
+            <p class="min_size">Seja c[i, j] = |LCS (Xi, Yj)Z</p>
+            <p class="min_size">Queremos obter c[m, n]</p>
+          </div>
+          <div id="recursive"></div>
+        </div>
+      </article>
+
+      <article class="prettyprint build">
+        <h3>Algoritmo Recursivo</h3>
+          <section>
+            <pre>
+              function ComprimentoLcs(X, Y, i, j) {
+                  if (i == 0 or j == 0){
+                      return 0;
+                  }
+                  else if X[i] == Y[j]{
+                      return ComprimentoLcs(X, Y, i-1, j-1)+1
+                  }
+                  else {
+                      a = ComprimentoLcs(X, Y, i-1, j);
+                      b = ComprimentoLcs(X, Y, i, j-1);
+                      return max(a,b);
+                  }
+              }
+            </pre>
+          </section>
+      </article>
+
+      <article class="prettyprint build">
+        <h3>Programação Dinâmica - Comprimento</h3>
+          <section>
+            <pre>
+              function ComprimentoLcsDP(X, Y){
+                  m = X.length;
+                  n = Y.length;
+                  for i = 1 to m
+                      c[i, 0] = 0
+                  for j = 0 to n
+                      c[0, j ] = 0;
+                  for i = 1 to m
+                    for j = 1 to n
+                      if X[i] == Y [j]
+                          c[i, j] = c[i-1, j-1] + 1;
+                      elseif c[i-1, j ] >= c[i, j-1]
+                          c[i, j] = c[i- 1, j];
+                      else c[i, j] = c[i, j-1]
+                  return c[m, n];
+              }
+            </pre>
+          </section>
+      </article>
+
+      <article class="build">
+        <h3>Obtendo a Subsequência</h3>
+          <ul class="min_size build">
+            <li>Até aqui, obtivemos apenas o comprimento da subsequência.</li>
+            <li>Vamos alterar o código de ComprimentoLcsDP() e, de cada vez que obtemos um c[i,j], registramos como ele foi obtido.</li>
+          </ul>
+          <div id="alg_pd"></div>
+      </article> 
+
+      <article class="build">
+        <ul class="build">
+          <li>As setas são armazenadas em <span class="blue">b[i, j]</span>.</li>
+          <li>b[i j] indica o subproblema escolhido para obter <span class="blue">c[i, j]</span>.</li>
+          <li>Uma vez tendo a informação em b, podemos obter uma LCS entre X e Y.</li>
+          <li>A chamada inicial é <span class="blue">Print-LCS (b, X, m, n)<span></li>
+        </ul>
+        <div id="print_lcs"></div>
+      </article>
+
+      <article id="pen" class="build">
+        <h3>Complexidade</h3>
+        <ul class="build">
+          <li>ComprimentoLcsDP tem complexidade <span class="blue">O (m.n)<span></li>
+          <li>Print-LCS tem complexidade <span class="blue">O (m+n)<span></li>
+          <li><span class="blue">Conclusão</span>: Usando Programação Dinâmica <br>reduzimos a complexidade de exponencial <br>para polinomial.</li>
+        </ul>
+      </article>
+      
+      <article class="build">
+        <h3>Exemplo Prático</h3>
+        <iframe src="http://slides.vagnersantana.com/lcs/lcs.php"></iframe>
+      </article>
+
+      <article class="build">
+        <h3>Exemplo Prático - Diff</h3>
+        <iframe src="http://slides.vagnersantana.com/lcs/diff.php"></iframe>
+      </article>
+
+      <article class="build">
+        <h3>A aplicação</h3>
+        <div>
+          <div id="app1"></div>
+          <ul>
+            <li><span class="min_size"><a href="LCS.zip">Download</a></span></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="build">
+        <h3>A aplicação</h3>  
+          <div id="app2"></div>
+      </article>
+
+      <article class="build">
+        <h3>Referências</h3>
+        <ul>
+          <li class="min_size">Thomas H. Cormen – Charles E. Leiserson – Ronald L. Rivest, Algoritmos: Teoria e Prática</li>
+          <li class="min_size"><a href="http://en.wikipedia.org/wiki/Longest_common_subsequence_problem" target="_blanc">Wikipedia</a> - Longest common subsequence problem</li>
+          <li class="min_size"><a href="http://www.algorithmist.com/index.php/Longest_Common_Subsequence" target="_blanc">Algorithmist</a> - Longest common subsequence</li>
+          <li class="min_size">Programação Dinâmica, Prof. Fernando Lobo - Universidade do Algarve, Portugal</li>
+        </ul>
+      </article>
+
+      <article class="build" id="fim">
+        <h1>Obrigado!</h1>
+        <ul>
+          <span class="blue min_size">Alunos:</br></span>
+          <li><span class="min_size">Luiz Felipe Marques - RA: 1289314</span></li>
+          <li><span class="min_size">Luiz Paulo Rabachini - RA: 1288350</span></li>
+          <li><span class="min_size">Vagner J. Santana - RA: 1288539</span></li>
+          <span class="min_size blue">Prof. Danilo Medeiros Eler</span>
+          </br></br>
+          <span style="text-align: center;" class="min_size">FCT Unesp</span>
+        </ul>
+      </article>
+
+      <div class="slide-area" id="prev-slide-area"></div>
+      <div class="slide-area" id="next-slide-area"></div>
+    </section>
+  </body>
+</html>

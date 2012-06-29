@@ -1,0 +1,34 @@
+#all{
+	margin-top: 30px;
+	margin-left: 150px;
+}
+
+p{
+	font-family: 'Pontano Sans', sans-serif;
+	font-size: 25px;
+}
+
+span{
+	font-size: 20px;
+	color: #4682B4;
+}
+
+#txt2{
+	margin: -225px 0 0 250px;
+}
+
+#result{
+	width: 470px;
+	font-size: 16px;
+	margin-left: 150px;
+}
+
+pre{
+	font-size: 20px;
+	color: red;
+}
+
+ins{
+	font-size: 20px;
+	color: green;
+}
